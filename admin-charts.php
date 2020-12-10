@@ -6,6 +6,19 @@ if (!isset($_SESSION['admin_email'])) {
 }
 ?>
 <?php
+/**
+ * Fill array 
+ * 
+ * This method calculates total selling in each month 
+ * 
+ * @param float $totalmonth
+ * @param int $monthscount
+ * @param array $months
+ * @param array $monthsnumber
+ * @param array dataPoints
+ * 
+ * @return array $dataPoints 
+ */
 // spline
 $dataPoints = array();
 $months = array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');

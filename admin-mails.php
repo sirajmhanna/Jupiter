@@ -103,6 +103,14 @@ if (!isset($_SESSION['admin_email'])) {
                         <input type="submit" value="SUBMIT" name="send" class="form-control bg-warning" onClick="javascript:return confirm('Are you sure you want to send this email');">
                         </form>
                         <?php
+                        /**
+                         * send email to all jupiter sellers
+                         * 
+                         * @param string $subject
+                         * @param string $body
+                         * 
+                         * @return status(200) sent
+                         */
                         if (isset($_POST['send'])) {
                             $subject = $_POST['subject'];
                             $body = $_POST['body'];

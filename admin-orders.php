@@ -99,6 +99,11 @@ include('phpmailer.php');
             <div class="container">
                 <tbody>
                     <?php
+                    /**
+                     * Print all orders from oldest to newest
+                     * 
+                     * @return Response html order details 
+                     */
                     $data_saver = array();
                     $query1 = "SELECT * FROM sales WHERE order_status = 0 ORDER BY SYSDATE ASC";
                     $result1 = mysqli_query($database, $query1);
@@ -338,6 +343,11 @@ include('phpmailer.php');
         </div>
     </div>
     <?php
+    /**
+     * Confirm order 
+     * update database / send confirmation email 
+     * @return status(200) 
+     */
     if (isset($_POST['markasdone'])) {
         $query = "UPDATE sales SET order_status = 1 WHERE order_id = '$_POST[react]'";
         mysqli_query($database, $query);

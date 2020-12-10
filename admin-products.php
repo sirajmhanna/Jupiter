@@ -365,6 +365,20 @@ if (!isset($_SESSION['admin_email'])) {
 
 <?php
 //edit products
+/**
+ * Edit products 
+ * 
+ * @param string $product_code
+ * @param string $product_name
+ * @param string $product_description
+ * @param string $product_specification
+ * @param float $product_price
+ * @param int $product_quantity
+ * @param string $product_brand
+ * @param string $product_type
+ * 
+ * @return status(200) updated 
+ */
 if (isset($_POST['eedit_product'])) {
     $product_code = $_POST['react'];
     $product_name = $_POST['eproduct_name'];
@@ -396,6 +410,20 @@ if (isset($_POST['eedit_product'])) {
     }
 }
 // add product php
+/**
+ * Add products 
+ * 
+ * @param string $product_code
+ * @param string $product_name
+ * @param string $product_description
+ * @param string $product_specification
+ * @param float $product_price
+ * @param int $product_quantity
+ * @param string $product_brand
+ * @param string $product_type
+ * 
+ * @return status(201) product added
+ */
 if (isset($_POST['btn-upload'])) {
 
     $product_code = uniqid();
@@ -441,6 +469,14 @@ if (isset($_POST['btn-upload'])) {
 ?>
 <?php
 //remove product php
+/**
+ * Remove products 
+ * set product quantity to 0
+ * 
+ * @param string $product_name
+ * 
+ * @return status(200) removed 
+ */
 if (isset($_POST['delete_product'])) {
     $selected_product = $_POST['selected_product'];
     $query = "UPDATE product SET product_quantity = 0 WHERE product_name = '$selected_product' ";

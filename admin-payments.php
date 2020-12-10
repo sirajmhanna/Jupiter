@@ -10,6 +10,11 @@ function sortByOrder($b, $a) {
     return $a['balance'] - $b['balance'];
 }
 // collect sellers balance
+/**
+ * Print sellers balance and add payment for each seller
+ * 
+ * @return status(201) payment confirmed
+ */
 $data = array();
 $balance = 0;
 $query = "SELECT * FROM employee WHERE status = 1";

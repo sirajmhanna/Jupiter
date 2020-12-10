@@ -105,6 +105,11 @@ if (!isset($_SESSION['admin_email'])) {
                     </thead>
                     <tbody>
                         <?php
+                        /**
+                         * Print all sellers 
+                         * 
+                         * @return Response html (sellers name, email, phone, total(annual))
+                         */
                         $total = 0;
                         $year = date("Y");
                         if (isset($_POST['search'])) {

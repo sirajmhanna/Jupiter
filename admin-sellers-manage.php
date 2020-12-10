@@ -160,6 +160,11 @@ function randomPassword()
                 }
                 ?>
                 <?php
+                /**
+                 * Accept sellers requests
+                 * 
+                 * @return status(200) accepted
+                 */
                 if (isset($_POST['add'])) {
                     $query = "UPDATE employee SET status = 1 WHERE employee_id = '$_POST[react]'";
                     mysqli_query($database, $query);
@@ -175,13 +180,18 @@ function randomPassword()
                         $password = randomPassword();
                         $md5_password = md5($password);
                         $q = "UPDATE employee SET employee_password = '$md5_password' WHERE employee_id = '$row1[employee_id]'";
-                        mysqli_query($database,$q);
+                        mysqli_query($database, $q);
                         phpMailer("JUPITER", "$row1[employee_email]", "Acceptance Letter", "Dear $row1[first_name] $row1[last_name],\n\nYou have been accepted as a seller in our company JUPITER s.a.r.l \n\nLogin details:\n\nEmail: $row1[employee_email]\nPassword: $password\n\nOnce logged in you can change your password.  \n\nBest regards.");
                     }
                     echo "<script type='text/javascript'>alert('You have added a new seller');</script>";
                     echo "<script type='text/javascript'> document.location = 'admin-sellers-manage.php'; </script>";
                 }
-                if(isset($_POST['delete'])){
+                /**
+                 * Reject sellers requests
+                 * 
+                 * @return status(200) rejected
+                 */
+                if (isset($_POST['delete'])) {
                     $query = "DELETE FROM employee WHERE employee_id = '$_POST[react]'";
                     mysqli_query($database, $query);
                     $query1 = "SELECT * FROM employee WHERE employee_id = '$_POST[react]'";
@@ -236,6 +246,11 @@ function randomPassword()
                     </tbody>
                 </table>
                 <?php
+                /**
+                 * Remove seller
+                 * 
+                 * @return Response status(200)
+                 */
                 if (isset($_POST['removeseller'])) {
                     $query = "UPDATE employee SET status = 2 WHERE employee_id = '$_POST[react22]'";
                     mysqli_query($database, $query);
