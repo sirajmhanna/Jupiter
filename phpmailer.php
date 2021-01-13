@@ -21,7 +21,7 @@ function phpMailer($fromName, $email, $subject, $body)
     $mail = new PHPMailer();
     $mail->SMTPSecure = 'tls';
     $mail->Username = "sirajmhanna@hotmail.com"; //jupiterlebanon@hotmail.com
-    $mail->Password = "Dxdiag_354045";
+    $mail->Password = "-_-";
     $mail->AddAddress($email);
     $mail->FromName = $fromName;
     $mail->Subject = $subject;
