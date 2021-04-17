@@ -1,2 +1,2 @@
 # Jupiter
-Siraj's dynamic pyramid scheme
+Dynamic pyramid scheme 
